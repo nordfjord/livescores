@@ -1,16 +1,45 @@
 <div class="header">
   <ul class="nav nav-pills pull-right">
     <li class="active"><a ng-href="#">Home</a></li>
-    <li><a ng-href="#">About</a></li>
-    <li><a ng-href="#">Contact</a></li>
+    <!--<li><a ng-href="#">About</a></li>
+    <li><a ng-href="#">Contact</a></li>-->
   </ul>
   <h3 class="text-muted">livescore</h3>
 </div>
 
-<iframe width="720" height="560" src="http://www.ustream.tv/embed/16608268?v=3&amp;wmode=direct" scrolling="no" frameborder="0" style="border: 0px none transparent;">    </iframe><br /><a href="http://www.ustream.tv/" style="padding: 2px 0px 4px; width: 400px; background: #ffffff; display: block; color: #000000; font-weight: normal; font-size: 10px; text-decoration: underline; text-align: center;" target="_blank">Video streaming by Ustream</a>
+<!--<iframe width="720" height="560" src="http://www.ustream.tv/embed/16608268?v=3&amp;wmode=direct" scrolling="no" frameborder="0" style="border: 0px none transparent;">    </iframe><br /><a href="http://www.ustream.tv/" style="padding: 2px 0px 4px; width: 400px; background: #ffffff; display: block; color: #000000; font-weight: normal; font-size: 10px; text-decoration: underline; text-align: center;" target="_blank">Video streaming by Ustream</a>
+-->
+<div class="row" ng-hide="isSelected">
+<div class="col-md-12">
+<h4>Veldu sal og brautir</h4>
+<form ng-submit="lanes()" class="form-inline" role="form">
 
-<div class="row marketing">
-  <kli-bowl-frame></kli-bowl-frame>
+  <div class="form-group">
+    <label class="sr-only" for="">Salur</label>
+    <select ng-model="venue" ng-options="v.id as v.name for v in venues"></select>
+  </div>
+  <div class="form-group">
+    <label class="sr-only" for="">Braut 1</label>
+    <input type="number" ng-model="lane1" placeholder="Braut 1"/>
+  </div>
+  <div class="form-group">
+    <label class="sr-only" for="">Braut 2</label>
+    <input type="number" ng-model="lane2" placeholder="Braut 2"/>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Staðfesta</button>
+</form>
+</div>
+</div>
+
+<!--
+  This is where we should display our games, one for each lane
+  the division is played with four players on each lane so I
+  have no hopes of making this fully responsive
+-->
+<div class="row">
+  <div class="col-md-6"></div>
+  <div class="col-md-6"></div>
 </div>
 
 <div class="footer">
