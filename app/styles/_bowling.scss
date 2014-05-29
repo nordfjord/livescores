@@ -1,162 +1,165 @@
 .uppercase {
-  text-transform: uppercase;
+    text-transform: uppercase;
 }
 
 .lane-row, .lane-name {
-  margin: auto;
-  width: 100%;
+    margin: auto;
+    width: 100%;
 }
 
 .lane-name {
-  font-size: 10px;
-  margin-bottom: 0px;
-  font-weight: bold;
-  text-align: center;
+    font-size: 10px;
+    margin-bottom: 0px;
+    font-weight: bold;
+    text-align: center;
+    color:#FFF;
 }
 
 .lane-row {
-  margin-bottom: 5px;
-  user-select: none;
-  > li {
-    float: left;
-    background-color: transparent;
-    list-style: none;
-    padding: 0 0 0 2px;
-    margin: 0;
-    width: 9.5%;
-  }
-  > li:last-child {
-    width: 14.5%;
-  }
+    margin-bottom: 5px;
+    user-select: none;
+    > li {
+        float: left;
+        background-color: transparent;
+        list-style: none;
+        padding: 0 0 0 2px;
+        margin: 0;
+        width: 9.5%;
+    }
+    > li:last-child {
+        width: 14.5%;
+    }
 }
 
 .frame-number-container {
-  width: 100%;
-  background-color: #0057b3;
-  margin: 0;
-  padding: 0;
-  border-radius: 2px;
-  display: block;
-  height: 20px;
-  text-align: center;
-  color: #FFFFFF;
-  font-weight: bold;
+    width: 100%;
+    background-color: #0057b3;
+    margin: 0;
+    padding: 0;
+    border-radius: 2px;
+    display: block;
+    height: 20px;
+    text-align: center;
+    color: #FFFFFF;
+    font-weight: bold;
 }
 
 .score-container, .balls-container {
-  height: 60px;
-  background-color: #0057b3;
-  border-radius: 2px;
-  margin: 1px 0 0 0;
-  padding: 0;
-  width: 100%;
-  color: #fff;
-  font-size: 12px;
+    height: 60px;
+    background-color: #0057b3;
+    border-radius: 2px;
+    margin: 1px 0 0 0;
+    padding: 0;
+    width: 100%;
+    color: #fff;
+    font-size: 12px;
 }
 
 .balls-container {
-  display: none;
-  width: 100%;
-  height: 65px;
+    display: none;
+    width: 100%;
+    height: 65px;
 }
 
 .score-container {
-  line-height: 20px;
-  padding-top: 5px;
-  > .frame-score {
-    font-size: 30px;
-    text-align: center;
-    padding-top: 8px;
-    clear: both;
-    display: block;
-  }
-  > .throw-score {
-    float: left;
-    width: 50%;
-    text-align: center;
-    font-size: 22px;
-  }
-  .tenth-frame > .throw-score {
-    width: 33%;
-  }
+    line-height: 20px;
+    padding-top: 5px;
+    > .frame-score {
+        font-size: 25px;
+        text-align: center;
+        padding-top: 8px;
+        clear: both;
+        display: block;
+    }
+    > .throw-score {
+        float: left;
+        width: 50%;
+        text-align: center;
+        font-size: 22px;
+    }
 }
+.score-container.tenth-frame > .throw-score {
+    width: 33%;
+}
+
 .header-home-icon {
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  top: 5px;
-  right: 10px;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 5px;
+    right: 10px;
 }
 
 .lane-row > li:last-child .score-container > .ball {
-  width: 33%;
+    width: 33%;
 }
 
 .loading-message {
-  font-size: 25px;
-  font-weight: bold;
-  width: 100%;
-  text-align: center;
-  margin-top: 15px;
+    font-size: 25px;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
 }
 
 .pins-container {
-  width: 80%;
-  padding-left: 6px;
-  padding-top: 5px;
+    width: 80%;
+    padding-left: 6px;
+    padding-top: 5px;
 }
 
 .ballRow {
-  clear: both;
-  height: 12px;
+    clear: both;
+    height: 12px;
 }
 
 .ball {
-  border-radius: 5em 5em 5em 5em;
-  display: block;
-  float: left;
-  background-color: #FFFFFF;
-  width: 20%;
-  height: 100%;
-  margin: 0 2%;
+    border-radius: 5em 5em 5em 5em;
+    display: block;
+    float: left;
+    background-color: #FFFFFF;
+    width: 20%;
+    height: 100%;
+    margin: 0 2%;
 }
 
 .downed {
-  background-color: #606568;
+    background-color: #606568;
 }
 
 .ballPlaceholder {
-  display: block;
-  float: left;
-  background-color: transparent;
-  width: 12%;
-  height: 100%;
+    display: block;
+    float: left;
+    background-color: transparent;
+    width: 12%;
+    height: 100%;
 }
 
 .frame-throw-number {
-  position: relative;
-  bottom: 15px;
-  font-size: 25px;
-  font-weight: bold;
-  color: rgba(255, 255, 255, .5);
+    position: relative;
+    bottom: 15px;
+    font-size: 25px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .single-select {
-  border: 1px solid #E5E5E5;
-  border-radius: 4px 4px 4px 4px;
-  margin-bottom: 2px;
-  padding: 10px;
+    border: 1px solid #E5E5E5;
+    border-radius: 4px 4px 4px 4px;
+    margin-bottom: 2px;
+    padding: 10px;
 }
+
 .single-select > a {
-  display: block;
+    display: block;
 }
 
 .strong {
-  font-weight: bold;
+    font-weight: bold;
 }
 
-.embedded-video{
-  width: 480px;
-  height: 384px;
-  margin: 0 auto;
+.embedded-video {
+    width: 480px;
+    height: 384px;
+    margin: 0 auto;
 }

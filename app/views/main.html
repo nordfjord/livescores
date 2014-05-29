@@ -13,13 +13,13 @@
   have no hopes of making this fully responsive
 -->
 <div class="row">
-  <div class="col-md-6" ng-repeat="lane in lanes">
+  <div class="col-md-6" ng-repeat="lane in lanes track by $index">
   <div  ng-repeat="player in lane">
   <div class="lane-name">{{player['name']}}</div>
   <ul class="lane-row clearfix">
     <li ng-repeat="i in range(10) track by $index">
       <div class="frame-number-container">{{$index+1}}</div>
-      <div class="score-container">
+      <div class="score-container" ng-class="{'tenth-frame': $last}">
         <div class="throw-score">{{player['squareScore'+ (($index*2)+1)]}}</div>
         <div class="throw-score">{{player['squareScore'+ (($index*2)+2)]}}</div>
         <div class="throw-score" ng-if="$last">{{player['squareScore21']}}</div>
@@ -28,10 +28,21 @@
     </li>
   </ul>
   </div>
+  <div class="lane-name">Total</div>
+  <ul class="lane-row clearfix">
+    <li ng-repeat="i in range(10) track by $index">
+      <div class="frame-number-container">{{$index+1}}</div>
+      <div class="score-container">
+        <div class="throw-score">&nbsp;</div>
+        <div class="throw-score">&nbsp;</div>
+        <div class="frame-score">{{total($index+1, lane)}}</div>
+      </div>
+    </li>
+  </ul>
   </div>
   <div class="col-md-6"></div>
 </div>
 
 <div class="footer">
-  <p><span class="glyphicon glyphicon-heart"></span> frá Einari</p>
+  <p><span class="glyphicon glyphicon-heart"></span> frá <a href="https://twitter.com/enordfjord">Einari</a></p>
 </div>

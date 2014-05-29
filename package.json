@@ -21,7 +21,7 @@
     "gulp-useref": "^0.4.2",
     "gulp-util": "^2.2.14",
     "gulp-watch": "^0.6.2",
-    "jshint-stylish": "^0.1.5",
+    "jshint-stylish": "~0.1.3",
     "run-sequence": "^0.3.6",
     "wiredep": "^1.4.4",
     "lazypipe": "^0.2.1",
@@ -31,7 +31,6 @@
     "gulp-ruby-sass": "^0.4.3",
     "gulp-coffeelint": "^0.3.2",
     "gulp-coffee": "^1.4.2",
-    "jshint-stylish": "~0.1.3",
     "karma-ng-scenario": "^0.1.0",
     "karma": "^0.12.16",
     "karma-ng-html2js-preprocessor": "^0.1.0",
@@ -56,7 +55,9 @@
     "grunt-ngmin": "~0.0.2",
     "grunt-rev": "~0.1.0",
     "grunt-svgmin": "~0.2.0",
-    "grunt-usemin": "~2.0.0"
+    "grunt-usemin": "~2.0.0",
+    "load-grunt-tasks": "~0.4.0",
+    "time-grunt": "~0.3.1"
   },
   "engines": {
     "node": ">=0.10.0"
