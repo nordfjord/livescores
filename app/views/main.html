@@ -1,35 +1,10 @@
-<div class="header">
-  <ul class="nav nav-pills pull-right">
-    <li class="active"><a ng-href="#">Home</a></li>
-    <!--<li><a ng-href="#">About</a></li>
-    <li><a ng-href="#">Contact</a></li>-->
-  </ul>
-  <h3 class="text-muted">livescore</h3>
-</div>
 
-<!--<iframe width="720" height="560" src="http://www.ustream.tv/embed/16608268?v=3&amp;wmode=direct" scrolling="no" frameborder="0" style="border: 0px none transparent;">    </iframe><br /><a href="http://www.ustream.tv/" style="padding: 2px 0px 4px; width: 400px; background: #ffffff; display: block; color: #000000; font-weight: normal; font-size: 10px; text-decoration: underline; text-align: center;" target="_blank">Video streaming by Ustream</a>
--->
-<div class="row" ng-hide="isSelected">
-<div class="col-md-12">
-<h4>Veldu sal og brautir</h4>
-<form ng-submit="lanes()" class="form-inline" role="form">
-
-  <div class="form-group">
-    <label class="sr-only" for="">Salur</label>
-    <select ng-model="venue" ng-options="v.id as v.name for v in venues"></select>
+<div class="row">
+  <div class="col-md-12">
+  <div class="embedded-video">
+    <iframe width="480" height="384" align="middle" src="http://www.ustream.tv/embed/16608268" scrolling="no" frameborder="0" style="border: 0px none transparent;"></iframe>
   </div>
-  <div class="form-group">
-    <label class="sr-only" for="">Braut 1</label>
-    <input type="number" ng-model="lane1" placeholder="Braut 1"/>
   </div>
-  <div class="form-group">
-    <label class="sr-only" for="">Braut 2</label>
-    <input type="number" ng-model="lane2" placeholder="Braut 2"/>
-  </div>
-
-  <button type="submit" class="btn btn-primary">Staðfesta</button>
-</form>
-</div>
 </div>
 
 <!--
@@ -38,10 +13,25 @@
   have no hopes of making this fully responsive
 -->
 <div class="row">
-  <div class="col-md-6"></div>
+  <div class="col-md-6" ng-repeat="lane in lanes">
+  <div  ng-repeat="player in lane">
+  <div class="lane-name">{{player['name']}}</div>
+  <ul class="lane-row clearfix">
+    <li ng-repeat="i in range(10) track by $index">
+      <div class="frame-number-container">{{$index+1}}</div>
+      <div class="score-container">
+        <div class="throw-score">{{player['squareScore'+ (($index*2)+1)]}}</div>
+        <div class="throw-score">{{player['squareScore'+ (($index*2)+2)]}}</div>
+        <div class="throw-score" ng-if="$last">{{player['squareScore21']}}</div>
+        <div class="frame-score">{{player['frameScore' + ($index+1)]}}</div>
+      </div>
+    </li>
+  </ul>
+  </div>
+  </div>
   <div class="col-md-6"></div>
 </div>
 
 <div class="footer">
-  <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+  <p><span class="glyphicon glyphicon-heart"></span> frá Einari</p>
 </div>
