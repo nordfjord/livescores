@@ -14,5 +14,8 @@ angular
         controller: 'MainCtrl'
       .when '/404',
         templateUrl: '404.html'
+      .when '/home',
+        templateUrl: 'views/home.html'
+        controller: 'HomeCtrl'
       .otherwise
-        redirectTo: '/404'
+        redirectTo: '/home'

@@ -10,6 +10,23 @@ angular.module('livescoreApp')
     $scope.lane2 = parseInt($routeParams.lane2)
     $scope.dev = true if $routeParams.lane2 is 'dev'
     $scope.lanes = [[],[]]
+
+    findBootstrapEnvironment = ()->
+      envs = ['xs', 'sm', 'md', 'lg']
+
+      $el = $('<div>')
+      $el.appendTo($('body'))
+
+      for i in [envs.length-1..0] by -1
+        env = envs[i]
+
+        $el.addClass('hidden-'+env)
+        if ($el.is(':hidden'))
+          $el.remove()
+          return env
+
+    $scope.env = findBootstrapEnvironment()
+    console.log "BootstrapEnvironment: #{$scope.env}"
     refresh = ()->
       if not $scope.dev
         xbowlingApi.lane($scope.venue, $scope.lane1).$promise.then (data)->
@@ -25,8 +42,24 @@ angular.module('livescoreApp')
           $scope.lanes[0] = data
           return
       return
-    $scope.range = (n)->
-      return new Array(n)
+
+    getNewestFrame = (lane)->
+      index = 0
+      return index if not lane[0]
+      for i in [1..10] by 1
+        if lane[0]["frameScore#{i}"] == ""
+          return i - 2
+
+    $scope.range = (lane)->
+      sizes = 'lg': 10, 'md': 10, 'sm': 4, 'xs': 2
+      size = sizes[$scope.env]
+      newestFrame = getNewestFrame(lane)
+      newestFrame = size if(newestFrame < size)
+      firstframe = newestFrame - size + 1
+      console.log "newestFrame: #{newestFrame}\nfirstFrame: #{firstframe}"
+      retarr = [firstframe..newestFrame]
+      console.log retarr
+      return retarr
     $scope.total = (index, lane)->
       frameTotal = 0
       angular.forEach lane, (value)->
@@ -34,3 +67,4 @@ angular.module('livescoreApp')
       return frameTotal
     refresh()
 #    setInterval(refresh, 7000)
+

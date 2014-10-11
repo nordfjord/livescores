@@ -1,9 +1,59 @@
-
+<div class=”hidden”>
+<div class=”bitdb-view-lg”></div>
+<div class=”bitdb-view-md”></div>
+<div class=”bitdb-view-sm”></div>
+<div class=”bitdb-view-xs”></div>
+</div>
+<div class="bowling-container">
 <div class="row">
-  <div class="col-md-12">
-  <div class="embedded-video">
-    <iframe width="480" height="384" align="middle" src="http://www.ustream.tv/embed/16608268" scrolling="no" frameborder="0" style="border: 0px none transparent;"></iframe>
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <div class="lane-name">Total</div>
+      <ul class="lane-row clearfix">
+        <li ng-repeat="i in range(lanes[0])" ng-class="{'tenth-frame': i===10}">
+          <div class="frame-number-container">{{total(i, lanes[0])}}</div>
+        </li>
+      </ul>
+    <div ng-repeat="player in lanes[0]">
+      <div class="lane-name">{{player.name}}</div>
+      <ul class="lane-row clearfix">
+        <li ng-repeat="i in range(lanes[0])" ng-class="{'tenth-frame': i===10}">
+          <div class="frame-number-container">{{i}}</div>
+          <div class="score-container" ng-class="{'tenth-frame': i===10}">
+            <div class="throw-score">{{player['squareScore'+ ((i*2)+1)]}}</div>
+            <div class="throw-score">{{player['squareScore'+ ((i*2)+2)]}}</div>
+            <div class="throw-score" ng-if="i===10">{{player['squareScore21']}}</div>
+            <div class="frame-score">{{player['frameScore' + (i+1)]}}</div>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+  <div class="embed-responsive embed-responsive-4by3">
+    <iframe class="embed-responsive-item" src="http://www.ustream.tv/embed/16608268" scrolling="no" frameborder="0" style="border: 0px none transparent;"></iframe>
+  </div>
+  </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <div class="lane-name">Total</div>
+      <ul class="lane-row clearfix">
+        <li ng-repeat="i in range(lanes[1])" ng-class="{'tenth-frame': i===10}">
+          <div class="frame-number-container">{{total(i, lanes[1])}}</div>
+        </li>
+      </ul>
+    <div ng-repeat="player in lanes[1]">
+      <div class="lane-name">{{player.name}}</div>
+      <ul class="lane-row clearfix">
+        <li ng-repeat="i in range(lanes[1])" ng-class="{'tenth-frame': i===10}">
+          <div class="frame-number-container">{{i+1}}</div>
+          <div class="score-container" ng-class="{'tenth-frame': i===10}">
+            <div class="throw-score">{{player['squareScore'+ ((i*2)+1)]}}</div>
+            <div class="throw-score">{{player['squareScore'+ ((i*2)+2)]}}</div>
+            <div class="throw-score" ng-if="i===10">{{player['squareScore21']}}</div>
+            <div class="frame-score">{{player['frameScore' + (i+1)]}}</div>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
 
@@ -11,7 +61,6 @@
   This is where we should display our games, one for each lane
   the division is played with four players on each lane so I
   have no hopes of making this fully responsive
--->
 <div class="row">
   <div class="col-md-6" ng-repeat="lane in lanes track by $index">
   <div  ng-repeat="player in lane">
@@ -31,18 +80,14 @@
   <div class="lane-name">Total</div>
   <ul class="lane-row clearfix">
     <li ng-repeat="i in range(10) track by $index">
-      <div class="frame-number-container">{{$index+1}}</div>
-      <div class="score-container">
-        <div class="throw-score">&nbsp;</div>
-        <div class="throw-score">&nbsp;</div>
-        <div class="frame-score">{{total($index+1, lane)}}</div>
-      </div>
+      <div class="frame-number-container">{{total($index+1, lane)}}</div>
     </li>
   </ul>
   </div>
   <div class="col-md-6"></div>
-</div>
+</div>-->
 
 <div class="footer">
-  <p><span class="glyphicon glyphicon-heart"></span> frá <a href="https://twitter.com/enordfjord">Einari</a></p>
+  <p><i class="fa fa-heart"></i> frá <a href="https://twitter.com/enordfjord">Einari</a></p>
+</div>
 </div>

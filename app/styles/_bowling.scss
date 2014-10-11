@@ -1,3 +1,4 @@
+$frame-bg: #B34C3C;
 .uppercase {
     text-transform: uppercase;
 }
@@ -24,16 +25,40 @@
         list-style: none;
         padding: 0 0 0 2px;
         margin: 0;
-        width: 9.5%;
+        @media (min-width: $screen-xs-min) {
+            width: 40%;
+        }
+        @media (min-width: $screen-sm-min) {
+            width: 20%;
+        }
+        @media (min-width: $screen-md-min) {
+            width: 9.5%;
+        }
+        @media (min-width: $screen-lg-min) {
+            width: 9.5%;
+        }
     }
-    > li:last-child {
-        width: 14.5%;
+    > li.tenth-frame {
+        @media (min-width: $screen-xs-min) {
+            width: 60%;
+        }
+        @media (min-width: $screen-sm-min) {
+            width: 30%;
+        }
+        @media (min-width: $screen-md-min) {
+            width: 14.5%;
+        }
+        @media (min-width: $screen-lg-min) {
+            width: 14.5%;
+        }
     }
 }
 
+
+
 .frame-number-container {
     width: 100%;
-    background-color: #0057b3;
+    background-color: $frame-bg;
     margin: 0;
     padding: 0;
     border-radius: 2px;
@@ -46,7 +71,7 @@
 
 .score-container, .balls-container {
     height: 60px;
-    background-color: #0057b3;
+    background-color: $frame-bg;
     border-radius: 2px;
     margin: 1px 0 0 0;
     padding: 0;
@@ -159,7 +184,23 @@
 }
 
 .embedded-video {
-    width: 480px;
-    height: 384px;
+    width: 100%;
     margin: 0 auto;
+}
+
+.bitdb-view-xs {display: none}
+.bitdb-view-sm {display: none}
+.bitdb-view-md {display: none}
+.bitdb-view-lg {display: none}
+@media (max-width: 767px) {
+.bitdb-view-xs { display: block }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+.bitdb-view-sm { display: block }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+.bitdb-view-md { display: block }
+}
+@media (min-width: 1200px) {
+.bitdb-view-lg { display: block }
 }
