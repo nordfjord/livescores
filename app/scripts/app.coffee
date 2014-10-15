@@ -9,7 +9,7 @@ angular
   ])
   .config ($routeProvider) ->
     $routeProvider
-      .when '/:venue/:lane1/:lane2',
+      .when '/',
         templateUrl: 'views/main.html'
         controller: 'MainCtrl'
       .when '/404',
@@ -18,4 +18,4 @@ angular
         templateUrl: 'views/home.html'
         controller: 'HomeCtrl'
       .otherwise
-        redirectTo: '/home'
+        redirectTo: '/'

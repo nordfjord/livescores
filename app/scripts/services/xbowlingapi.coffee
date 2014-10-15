@@ -11,7 +11,7 @@ angular.module('livescoreApp')
       hours = toFormat.getUTCHours()
       minutes = toFormat.getUTCMinutes()
       seconds = toFormat.getUTCSeconds()
-      "#{year}/#{month}/#{date} #{hours}:#{minutes}:#{seconds}";
+      "#{year}/#{month}/#{date} #{hours}:#{minutes}:#{seconds}"
 
     return {
       venue: (id)->
