@@ -11,9 +11,16 @@ angular.module('livescoreApp')
       hours = toFormat.getUTCHours()
       minutes = toFormat.getUTCMinutes()
       seconds = toFormat.getUTCSeconds()
-      "#{year}/#{month}/#{date} #{hours}:#{minutes}:#{seconds}";
+      "#{year}/#{month}/#{date} #{hours}:#{minutes}:#{seconds}"
 
     return {
+      summary: (venue)->
+        to = new Date()
+        from = new Date((do to.getTime) - scoreTimoutMinutes * 60000)
+        ($resource "#{xbowlingApiRoot}/venue/:venue/summary").query
+          venue: venue
+          from: formatDateTimeForRequest from
+          to: formatDateTimeForRequest to
       venue: (id)->
         ($resource "#{xbowlingApiRoot}/venue/:id").get(id:id)
       lane: (id, number)->

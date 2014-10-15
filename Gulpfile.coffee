@@ -1,4 +1,5 @@
 "use strict"
+
 gulp = require("gulp")
 $ = require("gulp-load-plugins")()
 openURL = require("open")
@@ -151,7 +152,7 @@ gulp.task "client:build", [
   gulp.src(paths.views.main).pipe($.useref.assets(searchPath: [
     yeoman.app
     ".tmp"
-  ])).pipe(jsFilter).pipe($.ngmin()).pipe($.uglify()).pipe(jsFilter.restore()).pipe(cssFilter).pipe($.minifyCss(cache: true)).pipe(cssFilter.restore()).pipe($.rev()).pipe($.useref.restore()).pipe($.revReplace()).pipe($.useref()).pipe gulp.dest(yeoman.dist)
+  ])).pipe(jsFilter).pipe($.ngmin()).pipe($.uglify({'drop-console': true})).pipe(jsFilter.restore()).pipe(cssFilter).pipe($.minifyCss(cache: true)).pipe(cssFilter.restore()).pipe($.rev()).pipe($.useref.restore()).pipe($.revReplace()).pipe($.useref()).pipe gulp.dest(yeoman.dist)
 
 gulp.task "html", ->
   gulp.src(yeoman.app + "/views/**/*").pipe gulp.dest(yeoman.dist + "/views")

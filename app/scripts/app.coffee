@@ -5,7 +5,8 @@ angular
     'ngCookies',
     'ngResource',
     'ngSanitize',
-    'ngRoute'
+    'ngRoute',
+    'ui.select'
   ])
   .config ($routeProvider) ->
     $routeProvider
@@ -14,8 +15,8 @@ angular
         controller: 'MainCtrl'
       .when '/404',
         templateUrl: '404.html'
-      .when '/home',
+      .when '/',
         templateUrl: 'views/home.html'
         controller: 'HomeCtrl'
       .otherwise
-        redirectTo: '/home'
+        redirectTo: '/404'

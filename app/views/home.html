@@ -4,17 +4,41 @@
 <form role="form" ng-submit="goToShow()">
 	<div class="form-group">
 		<label for="venue">Salur</label>
-		<select id="venue" ng-model="venue" ng-options="v.id as v.name for v in venues" class="form-control">
+		<select id="venue" ng-model="venue" ng-change="venueChange()" ng-options="v.id as v.name for v in venues" class="form-control">
 			<option value="">Veldu Sal...</option>
 		</select>
 	</div>
+	<div ng-show="venue">
 	<div class="form-group">
 		<label for="lane1">Braut 1</label>
-		<input id="lane1" type="text" placeholder="Braut 1" ng-model="lane.first" class="form-control"/>
+		<ui-select ng-model="$parent.lane.first"
+							 theme="bootstrap">
+			<ui-select-match placeholder="Veldu braut...">
+				{{'Braut ' + $select.selected.laneNumber}}
+			</ui-select-match>
+			<ui-select-choices repeat="lane.laneNumber as lane in lanes | propsFilter: {name: $select.search, laneNumber: $select.search}">
+				<div ng-bind-html="'Braut ' + lane.laneNumber | highlight: $select.search"></div>
+				<small ng-bind-html="lane.name | highlight: $select.search"></small>
+			</ui-select-choices>
+		</ui-select>
+		<!--<select ng-hide="manual" class="form-control" ng-model="lane.first" ng-options="l.laneNumber as ('Braut ' + l.laneNumber) for l in lanes">
+			<option value="">Veldu Braut</option>
+		</select>-->
+		<input ng-show="manual" class="form-control" type="text" ng-model="lane.first" placeholder="Veldu Braut" />
 	</div>
 	<div class="form-group">
 		<label for="lane2">Braut 2</label>
-		<input id="lane2" type="text" placeholder="Braut 2" ng-model="lane.second" class="form-control"/>
+		<ui-select ng-model="$parent.lane.second" theme="bootstrap">
+			<ui-select-match placeholder="Veldu braut...">
+				{{'Braut ' + $select.selected.laneNumber}}
+			</ui-select-match>
+			<ui-select-choices repeat="lane.laneNumber as lane in lanes | propsFilter: {name: $select.search, laneNumber: $select.search}">
+				<div ng-bind-html="'Braut ' + lane.laneNumber | highlight: $select.search"></div>
+				<small ng-bind-html="lane.name | highlight: $select.search"></small>
+			</ui-select-choices>
+		</ui-select>
+		<input ng-show="manual" class="form-control" type="text" ng-model="lane.second" placeholder="Veldu Braut" />
+	</div>
 	</div>
 	<button type="submit" class="btn btn-bowl">Áfram</button>
 </form>

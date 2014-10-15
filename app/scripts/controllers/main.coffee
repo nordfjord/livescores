@@ -8,7 +8,7 @@ angular.module('livescoreApp')
     $scope.venue = 5395 if venue is 'egilsholl'
     $scope.lane1 = parseInt($routeParams.lane1)
     $scope.lane2 = parseInt($routeParams.lane2)
-    $scope.dev = true if $routeParams.lane2 is 'dev'
+    $scope.dev = !!$routeParams.dev
     $scope.lanes = [[],[]]
 
     findBootstrapEnvironment = ()->
@@ -26,7 +26,6 @@ angular.module('livescoreApp')
           return env
 
     $scope.env = findBootstrapEnvironment()
-    console.log "BootstrapEnvironment: #{$scope.env}"
     refresh = ()->
       if not $scope.dev
         xbowlingApi.lane($scope.venue, $scope.lane1).$promise.then (data)->
@@ -56,15 +55,13 @@ angular.module('livescoreApp')
       newestFrame = getNewestFrame(lane)
       newestFrame = size if(newestFrame < size)
       firstframe = newestFrame - size + 1
-      console.log "newestFrame: #{newestFrame}\nfirstFrame: #{firstframe}"
       retarr = [firstframe..newestFrame]
-      console.log retarr
-      return retarr
+      retarr
     $scope.total = (index, lane)->
       frameTotal = 0
       angular.forEach lane, (value)->
         frameTotal += parseInt value["frameScore#{index}"] or 0
-      return frameTotal
+      frameTotal
     refresh()
-#    setInterval(refresh, 7000)
+    setInterval(refresh, 7000)
 
