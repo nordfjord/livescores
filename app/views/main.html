@@ -1,7 +1,7 @@
 <div class="bowling-container">
 <div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" ng-repeat="lane in lanes">
-    <div class="lane-name">{{$index+1}}</div>
+  <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" ng-repeat="lane in lanes track by $index" ng-show="lane.length">
+    <div class="lane-name">{{lane[0].lane}}</div>
     <div ng-repeat="player in lane">
       <div class="lane-name">{{player.name}}</div>
       <ul class="lane-row clearfix">

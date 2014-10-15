@@ -1,25 +1,28 @@
 'use strict'
 
 angular.module('livescoreApp')
-  .controller 'MainCtrl', ($scope, $routeParams, xbowlingApi, $resource, $timeout) ->
-    $scope.venue = 5395
-    $scope.lanes = []
+.controller 'MainCtrl'
+, ($scope, $routeParams, xbowlingApi, $resource, $timeout)->
+  $scope.venue = 5395
+  $scope.lanes = (()->
+    arr = []
+    for i in [1..22]
+      arr.push []
+    arr
+  )()
 
 
 
-    refresh = ()->
-      newData = []
-      for i in [1..22]
+  refresh = ()->
+    for i in [1..22]
+      do (i)->
         xbowlingApi.lane($scope.venue, i).$promise.then (data)->
-          newData.push data
-      $timeout(()->
-        $scope.lanes = newData
-      , 5000)
+            $scope.lanes[i-1] = data
 
-      return
-    $scope.range = (siz)->
-      return [0..siz-1]
+    return
+  $scope.range = (siz)->
+    return [0..siz-1]
 
-    refresh()
-    setInterval(refresh, 7000)
+  refresh()
+  setInterval(refresh, 7000)
 
