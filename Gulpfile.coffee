@@ -90,6 +90,8 @@ gulp.task "start:server:test", ->
   return
 
 gulp.task "watch", ->
+  gulp.watch paths.styles, ["styles"]
+
   $.watch(glob: paths.styles).pipe($.plumber()).pipe(styles()).pipe $.connect.reload()
   $.watch(glob: paths.views.files).pipe($.plumber()).pipe $.connect.reload()
   $.watch(glob: paths.scripts).pipe($.plumber()).pipe(lintScripts()).pipe($.coffee(bare: true).on("error", $.util.log)).pipe(gulp.dest(".tmp/scripts")).pipe $.connect.reload()

@@ -1,10 +1,19 @@
 $frame-bg: #B34C3C;
+$well-bg: #111111;
 .uppercase {
     text-transform: uppercase;
 }
 
+.lane-container {
+    border-radius: 5px;
+    background-color: $well-bg;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
 .lane-row, .lane-name {
-    margin: auto;
+    margin: 0;
+    padding:0;
     width: 100%;
 }
 
@@ -25,32 +34,10 @@ $frame-bg: #B34C3C;
         list-style: none;
         padding: 0 0 0 2px;
         margin: 0;
-        @media (min-width: $screen-xs-min) {
-            width: 40%;
-        }
-        @media (min-width: $screen-sm-min) {
-            width: 20%;
-        }
-        @media (min-width: $screen-md-min) {
-            width: 9.5%;
-        }
-        @media (min-width: $screen-lg-min) {
-            width: 9.5%;
-        }
+        width: 9.523810%;
     }
     > li.tenth-frame {
-        @media (min-width: $screen-xs-min) {
-            width: 60%;
-        }
-        @media (min-width: $screen-sm-min) {
-            width: 30%;
-        }
-        @media (min-width: $screen-md-min) {
-            width: 14.5%;
-        }
-        @media (min-width: $screen-lg-min) {
-            width: 14.5%;
-        }
+        width: 14.285715%;
     }
 }
 
@@ -186,21 +173,4 @@ $frame-bg: #B34C3C;
 .embedded-video {
     width: 100%;
     margin: 0 auto;
-}
-
-.bitdb-view-xs {display: none}
-.bitdb-view-sm {display: none}
-.bitdb-view-md {display: none}
-.bitdb-view-lg {display: none}
-@media (max-width: 767px) {
-.bitdb-view-xs { display: block }
-}
-@media (min-width: 768px) and (max-width: 991px) {
-.bitdb-view-sm { display: block }
-}
-@media (min-width: 992px) and (max-width: 1199px) {
-.bitdb-view-md { display: block }
-}
-@media (min-width: 1200px) {
-.bitdb-view-lg { display: block }
 }
