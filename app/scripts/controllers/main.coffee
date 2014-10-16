@@ -16,10 +16,10 @@ angular.module('livescoreApp')
   refresh = ()->
     for i in [1..22]
       do (i)->
-        $resource('temp/lane.json').query().$promise.then (data) ->
-          $scope.lanes[i-1] = data
-#        xbowlingApi.lane($scope.venue, i).$promise.then (data)->
-#          $scope.lanes[i-1] = data
+        # $resource('temp/lane.json').query().$promise.then (data) ->
+          # $scope.lanes[i-1] = data
+       xbowlingApi.lane($scope.venue, i).$promise.then (data)->
+         $scope.lanes[i-1] = data
 
     return
   $scope.range = (siz)->
