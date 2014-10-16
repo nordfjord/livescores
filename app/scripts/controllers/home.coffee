@@ -9,19 +9,7 @@
 ###
 angular.module('livescoreApp')
   .controller 'HomeCtrl', ($scope, $location) ->
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate'
-      'AngularJS'
-      'Karma'
-    ]
-    $scope.venues = [{
-        name: 'Öskjuhlíð'
-        id: '5394'
-      }, {
-        name: 'Egilshöll',
-        id: '5395'
-      }
-    ]
+    $scope.venues = [{name: 'Öskjuhlíð', id: '5394'},{name: 'Egilshöll',id: '5395'}]
 
     $scope.goToShow = ()->
       urlstring = "#{$scope.venue}/#{$scope.lane.first}/#{$scope.lane.second}"

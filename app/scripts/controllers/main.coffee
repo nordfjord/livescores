@@ -18,13 +18,13 @@ angular.module('livescoreApp')
       do (i)->
         # $resource('temp/lane.json').query().$promise.then (data) ->
           # $scope.lanes[i-1] = data
-       xbowlingApi.lane($scope.venue, i).$promise.then (data)->
-         $scope.lanes[i-1] = data
+        xbowlingApi.lane($scope.venue, i).$promise.then (data)->
+          $scope.lanes[i-1] = data
 
     return
   $scope.range = (siz)->
     return [0..siz-1]
 
   refresh()
-#  setInterval(refresh, 7000)
+  setInterval(refresh, 7000)
 
